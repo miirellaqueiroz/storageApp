@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Storage
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/cadastro']" routerLinkActive="router-link-active" >
+        <ion-icon slot="icon-only" name="person-add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-header>
+      <img alt="Shopping" src="https://hotsite-cdn.s3.amazonaws.com/wp-content/uploads/2016/04/15074619/Shopping-Centers-ou-Lojas-de-bairro.jpg" />
+      <ion-card-title>Storage</ion-card-title>
+      <ion-card-subtitle>Cadastre seu produto na venda do nosso shopping</ion-card-subtitle>
+    </ion-card-header>
+
+  <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input placeholder="Email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input placeholder="Password"></ion-input>
+    </ion-item>
+
+    <ion-button fill="clear">Esqueceu a senha?</ion-button>
+
+  <ion-card>
+    <ion-button fill="dark" routerLink="/produto">Entrar</ion-button>
+  </ion-card>
+
+  <ion-card>
+    <ion-button fill="dark" routerLink="/cadastro">Registrar</ion-button>
+  </ion-card>
+
+  </ion-card>
+
+
+  <ion-item-sliding *ngFor="let user of listaUsuarios">
+
+    <ion-item>
+      <ion-label>
+        <div>
+          <h1>{{user.nome}}</h1>
+          <span style="float: right;">{{user.cpf}}</span>
+          <a href="mailto:{{user.email}}"> {{user.email}} </a>
+        </div>
+      </ion-label>
+    </ion-item>
+
+    <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="excluirCadastro(user.email)">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+</ion-content>
